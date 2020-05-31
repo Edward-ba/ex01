@@ -1,6 +1,7 @@
 package com.example;
 
 import com.googlecode.lanterna.SGR;
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -78,6 +79,11 @@ public class Tutorial02 {
             textGraphics.setBackgroundColor(TextColor.ANSI.DEFAULT);
             textGraphics.putString(5, 3, "Terminal Size: ", SGR.BOLD);
             textGraphics.putString(5 + "Terminal Size: ".length(), 3, terminal.getTerminalSize().toString());
+            textGraphics.drawLine(6, 7, 8, 9, 'c');
+
+            TerminalPosition pos = new TerminalPosition(2, 2);
+            TerminalSize size = new TerminalSize(4, 4);
+            textGraphics.drawRectangle(pos, size, 'c');
 
             /*
             You still need to flush for changes to become visible
